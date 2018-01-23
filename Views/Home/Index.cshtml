@@ -1,5 +1,37 @@
 @{
-    ViewData["Title"] = "Home Page";
+    foreach(var p in ViewBag.poke)
+    {
+        if(p.Key == "sprites")
+        {
+            <img src="@p.Value.front_default" alt="sprite">
+        }
+    }
+    foreach(var p in @ViewBag.poke)
+    {
+        
+        if(p.Key == "name")
+        {
+            <p>Name: @p.Value</p>
+        }
+        if(p.Key == "types")
+        {
+            <p>
+                Type(s): 
+                @foreach(var type in p.Value)
+                {
+                    <p>@type.type.name</p>
+                }
+            </p>
+        }
+        if(p.Key == "height")
+        {
+            <p>Height: @(p.Value * 0.1)m</p>
+        }
+        if(p.Key == "weight")
+        {
+            <p>Weight: @(p.Value * 0.1)kg</p>
+        }
+    }
+
+    
 }
-<h1>Default Blank Page~</h1>
-<p>Get to adding stuff</p>

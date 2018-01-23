@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using System.Linq;
 
 namespace candy_proj.Controllers
 {
@@ -25,6 +26,7 @@ namespace candy_proj.Controllers
                     PokeInfo = ApiResponse;
                 }
             ).Wait();
+            ViewBag.poke = PokeInfo;
             return View("Index");
         }
     }
